@@ -1,0 +1,30 @@
+{
+  "name": "dsh-unified-settings",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "统一配置台：把 agent-soul / 全局人格 / 表情包 / 表情 / 主动说话 / 抖音工作台 的配置入口收在一页。",
+  "keywords": ["dsh", "dsh-plugin", "bundle", "settings", "unified"],
+  "license": "MIT",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": ["index.js", "client.js", "cordis.patch.yml"],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-plugin-manager",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  }
+}
